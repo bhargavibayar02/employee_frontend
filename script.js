@@ -1,3 +1,4 @@
+// Filter jobs based on search, location, and salary inputs
 function filterJobs() {
   let searchInput = document.getElementById("searchInput").value.toLowerCase();
   let locationInput = document.getElementById("locationInput").value.toLowerCase();
@@ -7,12 +8,12 @@ function filterJobs() {
   for (let i = 0; i < jobCards.length; i++) {
     let card = jobCards[i];
     let title = card.querySelector("h3").innerText.toLowerCase();
-    let company = card.querySelector("p").innerText.toLowerCase();
-    let salary = card.querySelectorAll("p")[1].innerText.toLowerCase();
+    let companyLocation = card.querySelector("p").innerText.toLowerCase(); // company + location
+    let salary = card.querySelectorAll("p")[1].innerText.toLowerCase();     // salary line
 
     if (
       title.includes(searchInput) &&
-      company.includes(locationInput) &&
+      companyLocation.includes(locationInput) &&
       salary.includes(salaryInput)
     ) {
       card.style.display = "block";
@@ -22,9 +23,10 @@ function filterJobs() {
   }
 }
 
+// Load jobs from backend API
 async function loadJobs() {
   try {
-    const response = await fetch("https://employee-icr5.onrender.com/api/jobs");
+    const response = await fetch("https://employee-icr5.onrender.com/api/jobs"); // ✅ update if your backend URL differs
     const jobs = await response.json();
     let container = document.getElementById("jobContainer");
     container.innerHTML = "";
@@ -38,7 +40,7 @@ async function loadJobs() {
           <p>${job.company} - ${job.location}</p>
           <p>Salary: ${job.salary}</p>
           <p>${job.description.substring(0, 100)}...</p>
-          <a href="https://employee-icr5.onrender.com/job/${job._id}" class="btn btn-outline-danger">View Details</a>
+          <a href="apply.html?job_id=${job._id}" class="btn btn-outline-danger">Apply Now</a>
         </div>
       `;
       container.appendChild(card);
@@ -50,6 +52,7 @@ async function loadJobs() {
   }
 }
 
+// Run loadJobs when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("jobContainer")) {
     loadJobs();
