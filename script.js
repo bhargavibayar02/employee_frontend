@@ -24,7 +24,7 @@ function filterJobs() {
 
 async function loadJobs() {
   try {
-    const response = await fetch("https://employee-pj3m.onrender.com/api/jobs");
+    const response = await fetch("https://employee-icr5.onrender.com/api/jobs");
     const jobs = await response.json();
     let container = document.getElementById("jobContainer");
     container.innerHTML = "";
@@ -38,7 +38,7 @@ async function loadJobs() {
           <p>${job.company} - ${job.location}</p>
           <p>Salary: ${job.salary}</p>
           <p>${job.description.substring(0, 100)}...</p>
-          <a href="https://employee-pj3m.onrender.com/job/${job._id}" class="btn btn-outline-danger">View Details</a>
+          <a href="https://employee-icr5.onrender.com/job/${job._id}" class="btn btn-outline-danger">View Details</a>
         </div>
       `;
       container.appendChild(card);
