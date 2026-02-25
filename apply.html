@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply for Job</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="p-3 text-center bg-primary text-light">
+    <h1>Apply for Job</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="find_job.html">Find a Job</a>
+      <a href="add_job.html">Add a Job</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+    </nav>
+  </header>
+
+  <div class="container my-5">
+    <form id="applyForm" method="POST" class="p-4 bg-light rounded shadow">
+      <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+      <input type="email" name="email" class="form-control mb-3" placeholder="Your Email" required>
+      <textarea name="resume" class="form-control mb-3" placeholder="Paste Resume / Cover Letter" required></textarea>
+      <button type="submit" class="btn btn-danger w-100">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+    // Get job_id from query string
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get("job_id");
+
+    // Dynamically set form action
+    if (jobId) {
+      document.getElementById("applyForm").action = `https://employee-pj3m.onrender.com/apply/${jobId}`;
+    } else {
+      document.getElementById("applyForm").innerHTML =
+        "<p class='text-danger'>⚠️ No job selected. Please go back and choose a job.</p>";
+    }
+  </script>
+</body>
+</html>

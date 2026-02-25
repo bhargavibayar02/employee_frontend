@@ -1,0 +1,80 @@
+body {
+  background-color: #100a41; /* LinkedIn light gray */
+  color: #bad8f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background-color: #f4ec90; /* LinkedIn blue */
+  color: rgb(230, 46, 46);
+}
+
+nav a {
+  color: rgb(231, 117, 117) !important;
+  font-weight: bold;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.search-bar {
+  width: 60%;
+  margin: 20px auto;
+}
+
+.job-card {
+  background-color: white;
+  color: #1d2226;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo-animation {
+  font-size: 60px;
+  color: #0a66c2;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); color: #0a66c2; }
+  50% { transform: scale(1.2); color: red; }
+  100% { transform: scale(1); color: #0a66c2; }
+}
+
+/* Quote animation */
+.quote-container {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+}
+
+.quote {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  animation: fadeQuotes 12s infinite;
+}
+
+.quote:nth-child(1) { animation-delay: 0s; }
+.quote:nth-child(2) { animation-delay: 4s; }
+.quote:nth-child(3) { animation-delay: 8s; }
+
+@keyframes fadeQuotes {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  30% { opacity: 1; }
+  40% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 0; }
+}

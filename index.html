@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="p-3 text-center bg-primary text-light">
+    <h1>Anti-Unemployment</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="find_job.html">Find a Job</a>
+      <a href="add_job.html">Add a Job</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+    </nav>
+  </header>
+
+  <section class="container text-center my-5">
+    <h2>Your Next Opportunity Awaits </h2>
+    <button class="btn btn-danger" onclick="window.location.href='find_job.html'">Browse Jobs</button>
+  </section>
+
+  <section class="quotes text-center my-5">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <script>
+    const quotes = [
+      "“Choose a job you love, and you will never have to work a day in your life.” – Confucius",
+      "“Opportunities don’t happen, you create them.” – Chris Grosser",
+      "“Success is not the key to happiness. Happiness is the key to success.” – Albert Schweitzer"
+    ];
+    document.getElementById("quoteContainer").innerHTML = quotes.map(q => `<p><em>${q}</em></p>`).join("");
+  </script>
+</body>
+</html>
